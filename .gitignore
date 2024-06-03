@@ -1,0 +1,22 @@
+# Ignore data files
+*.csv
+*.json
+*.h5
+*.pkl
+
+# Ignore model files
+*.pth
+*.pt
+
+# Ignore log files
+*.log
+
+# Ignore virtual environment files
+venv/
+env/
+
+# Ignore Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# Ignore Python cache files
+__pycache__/
