@@ -1,5 +1,10 @@
+pyod
+pycaret
 pysad
 tqdm
 adtk
 mmh3
 seaborn
+darts
+pythresh    
+deepod

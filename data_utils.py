@@ -1,6 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 from sklearn.decomposition import PCA
+from pysad.utils import Data
 
 def get_data(name = 'data/6_cardio.npz'):
     """
@@ -16,10 +17,19 @@ def get_data(name = 'data/6_cardio.npz'):
     if name == 'data/6_cardio.npz':
         data = np.load(name, allow_pickle=True)
         X, y = data['X'], data['y']
-        return X, y
-    
+        
+    elif name == 'data/arrhythmia.mat':
+        # https://odds.cs.stonybrook.edu/arrhythmia-dataset/
+        data = Data("data")
+        X, y = data.get_data("arrhythmia.mat")
+
+    ##################################################    
+    ########### Insert here your dataset #############
+    ##################################################
     else:
         raise FileNotFoundError("Dataset not found")
+    
+    return X, y
     
 
 

@@ -14,6 +14,7 @@
 # Ignore virtual environment files
 venv/
 env/
+lightning_logs/
 
 # Ignore Jupyter Notebook checkpoints
 .ipynb_checkpoints/

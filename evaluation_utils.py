@@ -3,6 +3,27 @@ from deepod.metrics import point_adjustment
 import numpy as np
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import roc_auc_score
+from pythresh.thresholds.filter import FILTER
+from pythresh.thresholds.aucp import AUCP
+
+def threshold_anomalies(X_test, pred, method = "filter"):
+    """Threshold anomalies using the specified method.
+    Args:
+        X_test (np.ndarray): The test data.
+        pred (np.ndarray): The predicted values.
+        method (str): The method to use. Either "filter" or "aucp".
+
+    """
+    if method == "filter":
+        th = FILTER()
+    elif method == "aucp":
+        th = AUCP()
+    # Add more methods here https://pythresh.readthedocs.io/en/latest/index.html#
+    else:
+        raise ValueError("Invalid method")
+    error = X_test - pred
+    labels = th.eval(error)
+    return labels
 
 def evaluate_stability(method, X, y, n_splits=10):
     """
