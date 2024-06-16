@@ -1,9 +1,8 @@
 import numpy as np
 import matplotlib.pyplot as plt
 from sklearn.decomposition import PCA
-from pysad.utils import Data
 
-def get_data(name = 'data/6_cardio.npz'):
+def get_data(path):
     """
     Load the dataset.
 
@@ -14,14 +13,11 @@ def get_data(name = 'data/6_cardio.npz'):
     X (ndarray): The input features of the dataset.
     y (ndarray): The target labels of the dataset.
     """
-    if name == 'data/6_cardio.npz':
-        data = np.load(name, allow_pickle=True)
+
+    if path.endswith('6_cardio.npz'):
+        data = np.load(path, allow_pickle=True)
         X, y = data['X'], data['y']
         
-    elif name == 'data/arrhythmia.mat':
-        # https://odds.cs.stonybrook.edu/arrhythmia-dataset/
-        data = Data("data")
-        X, y = data.get_data("arrhythmia.mat")
 
     ##################################################    
     ########### Insert here your dataset #############

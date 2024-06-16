@@ -1,5 +1,6 @@
-pyod
 pycaret
+pyod
+combo
 pysad
 tqdm
 adtk
@@ -8,3 +9,6 @@ seaborn
 darts
 pythresh    
 deepod
+tsfresh
+ipykernel
+causal-learn
