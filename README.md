@@ -29,16 +29,33 @@ pip install -r requirements.txt
 ```
 
 ## Approach 1: Traditional AD methods
-This section will cover the first approach to implement unsupervised anomaly detection. We will discuss the underlying algorithm, its advantages, and limitations. Code examples and visualizations will be provided to demonstrate the approach.
+This section covers the baseline approaches to implement unsupervised anomaly detection.
+- *sklearn.ipynb* contains examples of performing anomaly detection using [sklearn](https://scikit-learn.org/stable/modules/outlier_detection.html) methods
+- *pyOD.ipynb* contains examples of the dedicated library [pyOD](https://pyod.readthedocs.io/en/latest/index.html)
 
-## Approach 2
-In this section, we will explore another approach to implement unsupervised anomaly detection. We will discuss the algorithm, its applicability to multivariate timeseries data, and any specific considerations. Code snippets and results will be shared to illustrate the approach.
 
-## Approach 3
-The third approach focuses on a different technique for unsupervised anomaly detection. We will delve into the details of the algorithm, its strengths, and potential use cases. Code samples and visualizations will be provided to enhance understanding.
+## Approach 2: Timeseries based methods
+This section covers approaches analyzing the temporal component of time-series data
+- *darts.ipynb*  exemplifies the usage of [darts library](https://unit8co.github.io/darts/) for timeseries forecasting/reconstruction. After predicting the forecast/reconstruction the package pythresh is used to find optimal thresholds and predict anomalies based on prediction errors.
+- *tsfresh.ipynb* illustrates the approach of transforming temporal data into tabular data by feature extraction. Using the library [TSFresh](https://tsfresh.readthedocs.io/en/latest/index.html) we can extract temportal features from overlapping rolling windows.
+
+
+## Approach 3: Real-time/streaming approach
+This section covers approaches focused on addressing the real-time scenario
+- *pySAD* exemplifies solving anomaly detection for streaming, using [pySAD](https://pysad.readthedocs.io/en/latest/api.html#module-pysad.core) library and state of the art algorithms like LODA and xStream
+
+
+## Approach 4: Auto ML
+This section covers approaches leveraging auto ML to find optimal models
+- *pycaret* exemplifies the usage og the anomaly detection functionality from autoML [pycaret](https://www.pycaret.org/tutorials/html/ANO101.html) 
+
+
+## Approach 5: Latest published cutting-edge methods 
+This section covers approaches leveraging the latest state-of-the-art anomaly detectopn methods
+- *deepOD* exemplifies the usage of the [deepOD](https://deepod.readthedocs.io/en/latest/index.html) containing reconstruction-, representation-learning-, and self-superivsed-based latest deep learning methods
 
 ## Conclusion
-In the final section, we will summarize the key takeaways from the talk. We will discuss the pros and cons of each approach, highlight any challenges faced, and provide recommendations for implementing unsupervised anomaly detection on multivariate timeseries data.
+Despite the numerous existing approaches, unsupervised anomaly detection remains a challenging field. There is no silver bullet - each dataset brings its own challenges and idiosynchrasies.
 
 Feel free to explore the code and examples provided in this repository. We hope this resource will be helpful in understanding and implementing unsupervised anomaly detection techniques on your own datasets.
 
