@@ -2,31 +2,28 @@ import numpy as np
 import matplotlib.pyplot as plt
 from sklearn.decomposition import PCA
 
+
 def get_data(path):
     """
-    Load the dataset.
+    Load the dataset from a given path.
+    This method supports the ADBench files https://github.com/Minqi824/ADBench
+
+    Add here logic to load your own dataset.
 
     Parameters:
-    name (str): The name of the dataset file to load. Default is 'data/6_cardio.npz'.
+    - path (str): The path to the dataset file.
 
     Returns:
-    X (ndarray): The input features of the dataset.
-    y (ndarray): The target labels of the dataset.
+    - X (ndarray): The input features of the dataset.
+    - y (ndarray): The target labels of the dataset.
     """
-
-    if path.endswith('6_cardio.npz'):
+    try:
         data = np.load(path, allow_pickle=True)
         X, y = data['X'], data['y']
-        
-
-    ##################################################    
-    ########### Insert here your dataset #############
-    ##################################################
-    else:
-        raise FileNotFoundError("Dataset not found")
-    
-    return X, y
-    
+        return X, y
+    except FileNotFoundError:
+        print("File not found")
+        return None, None
 
 
 def plot_dataset(X, y):
