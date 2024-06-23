@@ -63,9 +63,9 @@ This section covers approaches leveraging the latest state-of-the-art anomaly de
 - *deepOD* exemplifies the usage of the [deepOD](https://deepod.readthedocs.io/en/latest/index.html) containing reconstruction-, representation-learning-, and self-superivsed-based latest deep learning methods
 
 ## Benchmarking
-All notebooks above save a dump of performance results in a file under **results** repositories.  
+All notebooks above save a dump of performance results to a file under **results** repositories.  
 To compare all experimental methods, run the notebook **benchmark.ipynb**.  
-A unified table of results is produced together with comparative visualization.
+A unified table of results is produced together with comparative visualizations.
 
 ## Conclusion
 Despite the numerous existing approaches, unsupervised anomaly detection remains a challenging field. There is no silver bullet - each dataset brings its own challenges and idiosynchrasies.
