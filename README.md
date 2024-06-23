@@ -13,6 +13,14 @@ A starting point to benchmark results is [ADBench](https://github.com/Minqi824/A
 
 If you want to use your dataset, save it under the **data** folder and add loading functionality to *data_utils.py* (i.e. under *get_data* method). 
 
+The *get_data* method is written to support the format of ADBench, assuming a .npz input file file contains 2 matrices: 
+- **X** a <n_timesteps> * <n_timeseries> matrix without gaps and ordered by time (implicit time index) 
+- **y** a <n_timesteps> elements vector, containing the anomaly annotations, a binary vector where 1 represents anomaly present. 
+
+The repository solves the anomaly detection problem in the **unsupervised** setting so the annotations are not used during training, only for evaluation.
+
+NB: If your dataset has a different format, you should handle the adaptations to the requirements described above (e.g. in get_data method).
+
 
 ## Evaluation
 The experimental results can be evaluated with the functionality in *evaluation_utils.py*. Key methods:
@@ -21,7 +29,7 @@ The experimental results can be evaluated with the functionality in *evaluation_
 
 
 ## Environment
-Some of the used libraries depend on a fixed python version. Run the script below to create the required repository.
+Some of the used libraries depend on a **fixed python version**. Run the script below to create the required repository.
 ```
 conda create -y -n adenv python=3.9
 conda activate adenv
@@ -53,6 +61,11 @@ This section covers approaches leveraging auto ML to find optimal models
 ## Approach 5: Latest published cutting-edge methods 
 This section covers approaches leveraging the latest state-of-the-art anomaly detectopn methods
 - *deepOD* exemplifies the usage of the [deepOD](https://deepod.readthedocs.io/en/latest/index.html) containing reconstruction-, representation-learning-, and self-superivsed-based latest deep learning methods
+
+## Benchmarking
+All notebooks above save a dump of performance results in a file under **results** repositories.  
+To compare all experimental methods, run the notebook **benchmark.ipynb**.  
+A unified table of results is produced together with comparative visualization.
 
 ## Conclusion
 Despite the numerous existing approaches, unsupervised anomaly detection remains a challenging field. There is no silver bullet - each dataset brings its own challenges and idiosynchrasies.

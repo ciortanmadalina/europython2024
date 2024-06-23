@@ -21,3 +21,6 @@ lightning_logs/
 
 # Ignore Python cache files
 __pycache__/
+
+# any folder called results
+results/
