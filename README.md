@@ -1,6 +1,8 @@
 
 # Summary
-This repository is created for a talk at [Europython 2024](https://ep2024.europython.eu/session/one-analysis-a-day-keeps-anomalies-away) to showcase different approaches to implement unsupervised anomaly detection on multivariate timeseries data. The repository provides an overview of various approaches and techniques.
+This repository supports the [Europython 2024](https://ep2024.europython.eu/session/one-analysis-a-day-keeps-anomalies-away) talk "One analysis a day keeps anomalies away!" focused on the unsupervised analysis of time series data. 
+
+The goal is to provide an extensive overview of various approaches and techniques, along with a hands-on starting point for practitioners to quickly benchmark these methods on their datasets.
 
 
 ## Introduction
@@ -9,21 +11,23 @@ In this talk, we will explore different methods for unsupervised anomaly detecti
 You can find the presented slides [here](#introduction)
 
 ## Datasets
-A starting point to benchmark results is [ADBench](https://github.com/Minqi824/ADBench), a collection of 57 curated datasets.  
+To benchmark your results, you can start with [ADBench](https://github.com/Minqi824/ADBench), a collection of 57 curated datasets.  
 
-If you want to use your dataset, save it under the **data** folder and add loading functionality to *data_utils.py* (i.e. under *get_data* method). 
+### Using your dataset
+If you prefer to use your own dataset, save it under the **data** folder and add loading functionality to *data_utils.py* (i.e. under *get_data* method). 
 
 The *get_data* method is written to support the format of ADBench, assuming a .npz input file file contains 2 matrices: 
 - **X** a <n_timesteps> * <n_timeseries> matrix without gaps and ordered by time (implicit time index) 
 - **y** a <n_timesteps> elements vector, containing the anomaly annotations, a binary vector where 1 represents anomaly present. 
 
-The repository solves the anomaly detection problem in the **unsupervised** setting so the annotations are not used during training, only for evaluation.
+Since this repository addresses anomaly detection in an **unsupervised** setting, annotations are used only for evaluation, not for training.
 
-NB: If your dataset has a different format, you should handle the adaptations to the requirements described above (e.g. in get_data method).
+Note: If your dataset has a different format, you must adapt it to the above requirements (e.g., within the get_data method).
 
 
 ## Evaluation
-The experimental results can be evaluated with the functionality in *evaluation_utils.py*. Key methods:
+The experimental results can be evaluated with the functionality in *evaluation_utils.py*.  
+Key methods include:
 - *run_evaluation*: evaluates the **correctness** of the results by computing the AUCROC, AUCCPR, F1, Precision and recall scores. The method computes the same scores also after performing **point adjustement**.
 - *threshold_anomalies*: performs **non parametric dynamic thresholding** using various algorithms from [pythresh](https://pythresh.readthedocs.io/en/latest/index.html).
 
