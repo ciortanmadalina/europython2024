@@ -1,6 +1,6 @@
 
 # Summary
-This repository supports the [Europython 2024](https://ep2024.europython.eu/session/one-analysis-a-day-keeps-anomalies-away) talk "One analysis a day keeps anomalies away!" focused on the unsupervised analysis of time series data. 
+This repository supports the [Europython 2024](https://ep2024.europython.eu/session/one-analysis-a-day-keeps-anomalies-away) talk "One analysis a day keeps anomalies away!" focused on the **unsupervised analysis of multivariate time series data**. 
 
 The goal is to provide an extensive overview of various approaches and techniques, along with a hands-on starting point for practitioners to quickly benchmark these methods on their datasets.
 
@@ -41,7 +41,7 @@ pip install -r requirements.txt
 ```
 
 ## Approach 1: Traditional AD methods
-This section covers the baseline approaches to implement unsupervised anomaly detection.
+This section covers the baseline approaches to implement unsupervised anomaly detection. The methods in this category are usually applied to tabular data.
 - *sklearn.ipynb* contains examples of performing anomaly detection using [sklearn](https://scikit-learn.org/stable/modules/outlier_detection.html) methods
 - *pyOD.ipynb* contains examples of the dedicated library [pyOD](https://pyod.readthedocs.io/en/latest/index.html)
 
@@ -63,8 +63,13 @@ This section covers approaches leveraging auto ML to find optimal models
 
 
 ## Approach 5: Latest published cutting-edge methods 
-This section covers approaches leveraging the latest state-of-the-art anomaly detectopn methods
-- *deepOD* exemplifies the usage of the [deepOD](https://deepod.readthedocs.io/en/latest/index.html) containing reconstruction-, representation-learning-, and self-superivsed-based latest deep learning methods
+This section covers approaches leveraging the latest state-of-the-art anomaly detection methods using deep learning approaches:
+- *deepOD* exemplifies the usage of the [deepOD](https://deepod.readthedocs.io/en/latest/index.html) containing reconstruction-, representation-learning-, and self-superivsed-based latest deep learning contributions
+
+## Evaluation
+All methods presented above evaluate the experimental results using traditional scores (F1, AUC, Precision, Recall) as well as **point adjustment** counterparts. 
+
+After running each notebook, the summary of results is saved in a dictionary under the results folder.
 
 ## Benchmarking
 All notebooks above save a dump of performance results to a file under **results** repositories.  
